@@ -1,0 +1,102 @@
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+
+<style>
+.buttonON {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  background-color: #008CBA;
+  width:1350px
+}
+
+.buttonOFF {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  background-color: #4CAF50;
+  width:1350px
+}
+
+</style>
+
+<head>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <meta http-equiv="refresh" content="30">
+</head>
+
+<div>
+
+    <h1>NICE Button Status</h1>
+    <br>
+    <p id="watch"></p>
+    <br>
+
+        <table class="table table-borderless">
+            <tbody>
+                <tr>
+                    <td>
+                        <input type="button" style="height:200px;width:300px" class="buttonON" id="Button_1" value= {{ button_1 }}>
+                    </td>
+                    <td>
+                        <input type="button" style="height:200px;width:300px" class="buttonON" id="Button_2" value= {{ button_2 }}>
+                    </td>
+                    <td>
+                        <input type="button" style="height:200px;width:300px" class="buttonON" id="Button_3" value= {{ button_3 }}>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" style="height:200px;width:300px" class="buttonON" id="Button_4" value= {{ button_4 }}>
+                    </td>
+                    <td>
+                        <input type="button" style="height:200px;width:300px" class="buttonON" id="Button_5" value= {{ button_5 }}>
+                    </td>
+                    <td>
+                        <input type="button" style="height:200px;width:300px" class="buttonON" id="Button_6" value= {{ button_6 }}>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+
+
+</div>
+{% endblock %}
+
+    <script>  
+        var currentDate=(new Date()).toDateString();
+        var currentTime=(new Date()).toLocaleTimeString(); 
+        document.getElementById('watch').innerHTML=`${currentDate}-${currentTime}`
+        
+        
+        for (let i = 1; i <= 6; i++) {
+        var suffix = String(i);
+        var button_id = "Button_" + suffix;
+        console.log(button_id)
+        var button_value = document.getElementById(button_id)
+        console.log(button_value.value)
+        if(button_value.value=="OFF")
+            {
+                button_value.className = "buttonOFF";
+            }
+    };
+    </script>
+    
+    
